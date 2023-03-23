@@ -1,5 +1,7 @@
-Edición de superhéroe
-<br>
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
 
 <form action="{{ url('/superheroe/'.$superheroe->id) }}" method="post" enctype='multipart/form-data' >
 @csrf
@@ -8,3 +10,6 @@ Edición de superhéroe
 @include('superheroe.form');
 
 </form>
+
+</div>
+@endsection

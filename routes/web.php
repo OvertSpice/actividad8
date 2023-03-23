@@ -13,5 +13,17 @@ use App\Http\Controllers\SuperheroeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return view('AUTH.login');
+});
 
-Route::resource('superheroe',SuperheroeController::class);
+
+Route::resource('superheroe',SuperheroeController::class)->middleware('auth');
+Auth::routes(['register'=>false, 'reset'=>false]);
+
+Route::get('/home', [SuperheroeController::class, 'index'])->name('home');
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/', [SuperheroeController::class, 'index'])->name('home');
+});

@@ -1,4 +1,7 @@
-Lista de Superheroes:
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
 
 <a href="{{ url('/superheroe/create') }}"> Registrar un nuevo superhéroe </a>
 
@@ -44,3 +47,6 @@ Lista de Superheroes:
         @endforeach
     </tbody>
 </table>
+
+</div>
+@endsection
